@@ -13,7 +13,7 @@ SECRET_KEY = "django-insecure-us)-)2ol=f725b_aq+#!2b)bupxd58y67ir3!=-q663vb_moyy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0"]
 
 # Application definition
 
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "djoser",
     "corsheaders",
     "rest_framework_simplejwt.token_blacklist",
+    "api",
 ]
 
 MIDDLEWARE = [
