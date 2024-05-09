@@ -1,15 +1,14 @@
+import uuid
 from django.db import models
 
 class User(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, null=True)
     username = models.CharField(max_length=255, unique=True)
     bio = models.TextField(null=True)
     email = models.EmailField(unique=True, null=True)
-    email_verified = models.DateTimeField(null=True)
-    image = models.TextField(null=True)
-    cover_image = models.TextField(null=True)
-    profile_image = models.TextField(null=True)
+    profile_image = models.ImageField(upload_to='uploads/avatars', null = True)
+    cover_image = models.ImageField(upload_to='uploads/covers', null = True)
     hashed_password = models.CharField(max_length=255, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

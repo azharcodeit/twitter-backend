@@ -15,6 +15,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0"]
 
+if DEBUG:
+    WEBSITE_URL = 'http://localhost:8000'
+else:
+    WEBSITE_URL = 'http://178.62.71.162:1337'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -130,6 +135,22 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "http://178.62.71.162",
+    "http://178.62.71.162:1337",
+]
+
+CORS_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://178.62.71.162",
+    "http://178.62.71.162:1337",
+]
+
+CORS_ORIGINS_WHITELIST = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://178.62.71.162",
+    "http://178.62.71.162:1337",
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
