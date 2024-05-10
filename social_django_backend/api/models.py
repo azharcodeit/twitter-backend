@@ -5,6 +5,14 @@ class User(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255, null=True)
     username = models.CharField(max_length=255, unique=True)
+
+    is_active = models.BooleanField(default=True)
+    is_superuser = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
+
+    date_joined = models.DateTimeField(auto_now_add=True)
+    last_login = models.DateTimeField(blank=True, null=True)
+
     bio = models.TextField(null=True)
     email = models.EmailField(unique=True, null=True)
     profile_image = models.ImageField(upload_to='uploads/avatars', null = True)
